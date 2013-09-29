@@ -5,10 +5,10 @@ import java.util.Date;
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class Foo {
-	private String username;
-	private String password;
-	private String verifycode;
-	private String admin_name;
+	private String username="";
+	private String password="";
+	private String verifycode="";
+	private String admin_name="";
 	private Date 	date;
 	
 	@NotEmpty 
