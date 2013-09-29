@@ -1,8 +1,11 @@
 package com.accelet.controller;
 
 import java.beans.PropertyEditorSupport;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -19,6 +22,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.accelet.database.IDbAccess;
+
+import entity.AdminUserEntity;
+import entity.CircleAdmin2Entity;
 
 import x.y.service.Foo;
 
@@ -57,8 +63,16 @@ public class AdminLoginConctroller {
 		//其中form中各标签的path对应foo对象中的各个属性
         ModelAndView mav = new ModelAndView("login", "foo", new Foo());
         //mav.addObject("message", "Hello World!");
-        dbAccess.queryCircleAdmin2();
-        dbAccess.queryUserInfo();
+        List<CircleAdmin2Entity> circleAdmin;
+        List<AdminUserEntity> adminUser;
+		try {
+			circleAdmin = dbAccess.queryCircleAdmin2();
+			adminUser = dbAccess.queryAdminUser();
+		    System.out.println(circleAdmin.get(0).getAdminName());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         return mav;
     }
 	

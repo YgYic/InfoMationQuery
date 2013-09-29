@@ -1,8 +1,12 @@
 package com.accelet.database;
 
-import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import entity.AdminUserEntity;
+import entity.CircleAdmin2Entity;
 
 public interface IDbAccess {
-	public ResultSet queryAdminUser();
-	public ResultSet queryCircleAdmin2();
+	public List<AdminUserEntity> queryAdminUser() throws SQLException;
+	public List<CircleAdmin2Entity> queryCircleAdmin2() throws SQLException;
 }
