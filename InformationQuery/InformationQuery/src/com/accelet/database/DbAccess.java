@@ -50,10 +50,8 @@ public class DbAccess implements IDbAccess{
 					"limit_max, adc_flag, adc_number, fax_fee_type, fax_rise_ratio, full_submit FROM circle_admin2";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			ResultSet rs = stmt.executeQuery();
-			while(rs.next()){
-				System.out.println(rs.getString("user_name"));
-			}
 			rs.close();
+			return rs;
 		}catch (Exception e) {
 			e.printStackTrace();
 		}finally{
@@ -61,5 +59,6 @@ public class DbAccess implements IDbAccess{
 				conn.close();
 			}catch (Exception e) {}
 		}
+		return null;
 	}
 }
