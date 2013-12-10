@@ -17,6 +17,7 @@ public class AccountsInfoQuery {
 	
 	@RequestMapping("query.do")
     public ModelAndView query() {
+		System.out.println("Ht wd");
         ModelAndView mav = new ModelAndView();
         mav.setViewName("helloWorld");
         mav.addObject("message", "Hello World!!!!!");

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-public class TimeBasedAccessInterceptor extends HandlerInterceptorAdapter {
+public class MyAccessInterceptor extends HandlerInterceptorAdapter {
 	private int openingTime;    
     private int closingTime;    
     private String mappingURL;//利用正则映射到需要拦截的路径    
@@ -23,9 +23,9 @@ public class TimeBasedAccessInterceptor extends HandlerInterceptorAdapter {
     }    
     @Override    
     public boolean preHandle(HttpServletRequest request,    
-            HttpServletResponse response, Object handler) throws Exception { 
-    	System.out.println("TimeBased>>>>>");
+            HttpServletResponse response, Object handler) throws Exception {    
         String url=request.getRequestURL().toString();    
+        System.out.println("My!!!!");
         if(mappingURL==null || url.matches(mappingURL)){    
             Calendar c=Calendar.getInstance();    
             c.setTime(new Date());    

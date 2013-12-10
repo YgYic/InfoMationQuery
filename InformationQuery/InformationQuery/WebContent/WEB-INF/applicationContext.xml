@@ -33,7 +33,7 @@
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver"     
           p:defaultEncoding="gbk" p:maxUploadSize="100000"/>  
 
-	<bean id="timeBasedAccessInterceptor" class="com.accelet.controller.TimeBasedAccessInterceptor">    
+	<!-- <bean id="timeBasedAccessInterceptor" class="com.accelet.controller.TimeBasedAccessInterceptor">    
 	    <property name="openingTime" value="9" />    
 	    <property name="closingTime" value="12" />    
 	    <property name="mappingURL" value=".*/user\.do\?action=reg.*" />    
@@ -44,5 +44,23 @@
 	            <ref bean="timeBasedAccessInterceptor"/>    
 	        </list>    
 	    </property>    
-	</bean
+	</bean> -->
+	<mvc:interceptors>  
+	    <!--*************openSessionInViewInterceptor *************   -->  
+	    <bean id="openSessionInViewInterceptor" class="com.accelet.controller.MyAccessInterceptor">  
+	      	<property name="openingTime" value="9" />    
+		    <property name="closingTime" value="12" />    
+		    <property name="mappingURL" value=".*/user\.do\?action=reg.*" />   
+	    </bean>  
+	  
+	    <mvc:interceptor>  
+	      <mvc:mapping path="/*.do" />  
+	      <bean id="timeBasedAccessInterceptor" class="com.accelet.controller.TimeBasedAccessInterceptor">    
+		    <property name="openingTime" value="9" />    
+		    <property name="closingTime" value="12" />    
+		    <property name="mappingURL" value=".*/user\.do\?action=reg.*" />    
+		  </bean>   
+	    </mvc:interceptor>  
+  
+ 	</mvc:interceptors>
 </beans>
