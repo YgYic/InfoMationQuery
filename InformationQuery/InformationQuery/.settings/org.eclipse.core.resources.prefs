@@ -1,5 +1,6 @@
-#Wed Jul 10 17:20:06 CST 2013
+#Tue Dec 10 12:49:37 CST 2013
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/applicationContext.xml=UTF-8
 encoding//WebContent/WEB-INF/view/login.jsp=GBK
 encoding//WebContent/admin_top.jsp=GBK
 encoding//WebContent/admintitle.html=GBK
